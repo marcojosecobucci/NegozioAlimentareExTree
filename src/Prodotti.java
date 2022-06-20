@@ -12,16 +12,15 @@ public class Prodotti {
         quantitaProdotto = 0;
     }
 
-    public void setQuantitaProdotto(int quantitaProdotto) {
-        this.quantitaProdotto = quantitaProdotto;
-    }
 
     public String getNome() {
         return nome;
     }
-
     public int getQuantitaProdotto() {
         return quantitaProdotto;
+    }
+    public void setQuantitaProdotto(int quantitaProdotto) {
+        this.quantitaProdotto = quantitaProdotto;
     }
 
     public float getPrezzo() {

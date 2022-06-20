@@ -12,18 +12,16 @@ public class Negozio {
     public void addProdottoMagazzino(Prodotti p) {
         boolean addQuantita = false;
         for (int i = 0; i < listaProdottiMagazzino.length; i++) {
-            if (listaProdottiMagazzino[i] != null) {
-                if (Objects.equals(listaProdottiMagazzino[i].getNome(), p.getNome())) {
+            if (listaProdottiMagazzino[i] != null && listaProdottiMagazzino[i].getNome().equals(p.getNome())) {
                     listaProdottiMagazzino[i].setQuantitaProdotto(p.getQuantitaProdotto() + 1);
                     addQuantita = true;
                     break;
-                }
             }
         }
 
         if (!addQuantita) {
             listaProdottiMagazzino[contatoreQuantitaProdotti] = p;
-            listaProdottiMagazzino[contatoreQuantitaProdotti].setQuantitaProdotto(p.getQuantitaProdotto() + 1);
+            listaProdottiMagazzino[contatoreQuantitaProdotti].setQuantitaProdotto(1);
             contatoreQuantitaProdotti++;
         }
     }

@@ -18,16 +18,14 @@ public class Carrello {
         boolean disponibilitaProdotto = false;
         if (contatoreQuantitaProdotti <= 20) {
             for (int i = 0; i < magazzino.length; i++) {
-                if (magazzino[i] != null) {
-                    if (Objects.equals(magazzino[i].getNome(), p.getNome())) {
-                        prodottoEsistente = true;
-                        if (magazzino[i].getQuantitaProdotto() > 0) {
-                            listaProdottiCarrello[contatoreQuantitaProdotti] = p;
-                            contatoreQuantitaProdotti++;
-                            negozio.deleteProdottoMagazzino(p);
-                            disponibilitaProdotto = true;
-                            break;
-                        }
+                if (magazzino[i] != null && magazzino[i].getNome().equals(p.getNome())) {
+                    prodottoEsistente = true;
+                    if (magazzino[i].getQuantitaProdotto() > 0) {
+                        disponibilitaProdotto = true;
+                        listaProdottiCarrello[contatoreQuantitaProdotti] = p;
+                        contatoreQuantitaProdotti++;
+                        negozio.deleteProdottoMagazzino(p);
+                        break;
                     }
                 }
             }
@@ -41,6 +39,8 @@ public class Carrello {
             System.out.println("Il prodotto " + p.getNome() + " è esaurito!");
         }
     }
+
+    //TODO: Implementare la possibilità di togliere qualcosa dal carrello.
 
     public Prodotti[] getListaProdottiCarrello() {
         return listaProdottiCarrello;

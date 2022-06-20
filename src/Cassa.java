@@ -13,14 +13,6 @@ public class Cassa {
         listaProdottiCarrello = cliente.carrello.getListaProdottiCarrello();
     }
 
-    public void sommaScontrino() {
-        for (int i = 0; i < listaProdottiCarrello.length; i++) {
-            if (listaProdottiCarrello[i] != null) {
-                passaggioProdotti(listaProdottiCarrello[i]);
-            }
-        }
-        scontoPunti();
-    }
 
     public void stampaScontrino() {
         sommaScontrino();
@@ -30,16 +22,22 @@ public class Cassa {
         aggiungiPunti();
     }
 
+    public void sommaScontrino() {
+        for (int i = 0; i < listaProdottiCarrello.length; i++) {
+            if (listaProdottiCarrello[i] != null) {
+                passaggioProdotti(listaProdottiCarrello[i]);
+            }
+        }
+        scontoPunti();
+    }
+
     public void passaggioProdotti(Prodotti p) {
         boolean verificaSconto = false;
-        if (giornoDellaSettimana == GiornoDellaSettimana.LUNEDI || giornoDellaSettimana == GiornoDellaSettimana.MERCOLEDI) {
-            if (cliente.getEta() >= 60) {
-                if (p.getGenereProdotto() == GenereProdotto.ALIMENTARE) {
-                    float sconto = p.getPrezzo() * 20 / 100;
-                    valoreScontrino += (p.getPrezzo() - sconto);
-                    verificaSconto = true;
-                }
-            }
+        if ((giornoDellaSettimana == GiornoDellaSettimana.LUNEDI || giornoDellaSettimana == GiornoDellaSettimana.MERCOLEDI)
+                && cliente.getEta() >= 60 && p.getGenereProdotto() == GenereProdotto.ALIMENTARE) {
+            float sconto = p.getPrezzo() * 20 / 100;
+            valoreScontrino += (p.getPrezzo() - sconto);
+            verificaSconto = true;
         }
 
         if (!verificaSconto) {
