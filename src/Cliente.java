@@ -24,4 +24,5 @@ public class Cliente {
     public void setPunti(int punti) {
         this.punti = punti;
     }
+
 }

@@ -26,6 +26,7 @@ public class Cassa {
         for (int i = 0; i < listaProdottiCarrello.length; i++) {
             if (listaProdottiCarrello[i] != null) {
                 passaggioProdotti(listaProdottiCarrello[i]);
+                listaProdottiCarrello[i] = null;
             }
         }
         scontoPunti();
@@ -57,6 +58,5 @@ public class Cassa {
             valoreScontrino -= 10;
             cliente.setPunti(cliente.getPunti() + 1);
         }
-        System.out.println(cliente.getPunti());
     }
 }
