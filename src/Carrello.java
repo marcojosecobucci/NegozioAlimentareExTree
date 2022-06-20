@@ -21,6 +21,9 @@ public class Carrello {
                 if (magazzino[i] != null && magazzino[i].getNome().equals(p.getNome())) {
                     prodottoEsistente = true;
                     if (magazzino[i].getQuantitaProdotto() > 0) {
+                        System.out.println("In negozio rimangono: " + (magazzino[i].getQuantitaProdotto()-1)
+                                + " " + magazzino[i].getNome());
+
                         disponibilitaProdotto = true;
                         listaProdottiCarrello[contatoreQuantitaProdotti] = p;
                         contatoreQuantitaProdotti++;

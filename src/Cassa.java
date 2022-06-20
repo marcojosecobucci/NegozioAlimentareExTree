@@ -22,6 +22,11 @@ public class Cassa {
         aggiungiPunti();
     }
 
+    public void stampaScontrino(int mesi) {
+        sommaScontrino(mesi);
+        String strValoreScontrino = String.format("%.02f", valoreScontrino);
+        System.out.println("Totale: " + strValoreScontrino);
+    }
     public void sommaScontrino() {
         for (int i = 0; i < listaProdottiCarrello.length; i++) {
             if (listaProdottiCarrello[i] != null) {
@@ -30,6 +35,17 @@ public class Cassa {
             }
         }
         scontoPunti();
+    }
+
+    public void sommaScontrino(int mesi) {
+        for (int i = 0; i < listaProdottiCarrello.length; i++) {
+            if (listaProdottiCarrello[i] != null) {
+                passaggioProdotti(listaProdottiCarrello[i]);
+                listaProdottiCarrello[i] = null;
+            }
+        }
+        String strValoreScontrino = String.format("%.02f", valoreScontrino / mesi);
+        System.out.println("La rata sarà di " + strValoreScontrino + " al mese per un" );
     }
 
     public void passaggioProdotti(Prodotti p) {
@@ -47,9 +63,9 @@ public class Cassa {
     }
 
     private void scontoPunti() {
-        while (valoreScontrino >= 10 && cliente.getPunti() > 0) {
+        while (valoreScontrino >= 10 && cliente.getPunti() >= 10) {
             valoreScontrino -= 10;
-            cliente.setPunti(cliente.getPunti() - 1);
+            cliente.setPunti(cliente.getPunti() - 10);
         }
     }
 

@@ -3,7 +3,7 @@ import java.util.Arrays;
 public class Main {
     public static void main(String[] args) {
         Negozio superMarket = new Negozio();
-        Cliente cliente1 = new Cliente(65, 1, new Carrello(superMarket));
+        Cliente cliente1 = new Cliente(65, 10, new Carrello(superMarket));
         Cliente cliente2 = new Cliente(25, 0, new Carrello(superMarket));
         Cassa cassa;
         Prodotti caffe = new Prodotti("Caffe", 3, GenereProdotto.ALIMENTARE);
@@ -57,5 +57,23 @@ public class Main {
 
         cassa = new Cassa(cliente2, GiornoDellaSettimana.MARTEDI);
         cassa.stampaScontrino();
+
+        superMarket.addProdottoMagazzino(caffe);
+        superMarket.addProdottoMagazzino(caffe);
+
+        superMarket.addProdottoMagazzino(stoviglie);
+        superMarket.addProdottoMagazzino(stoviglie);
+
+        superMarket.addProdottoMagazzino(penna);
+
+        cliente2.carrello.addProdottoCarrello(caffe);
+        cliente2.carrello.addProdottoCarrello(caffe);
+
+        cliente2.carrello.addProdottoCarrello(stoviglie);
+
+        cliente2.carrello.addProdottoCarrello(penna);
+
+        cassa = new Cassa(cliente2, GiornoDellaSettimana.MARTEDI);
+        cassa.stampaScontrino(10);
     }
 }
