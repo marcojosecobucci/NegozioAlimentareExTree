@@ -8,8 +8,8 @@ e un prezzo. E' ovviamente possibile acquistare più prodotti simultaneamente. D
 
 aggiungere un nuovo prodotto (Se un prodotto è già presente, va aggiornata solo la quantità rimanente) rimuovere un prodotto ottenere la quantità
 rimanente di ogni prodotto
-Deve essere possibile per il cliente:
 
+Deve essere possibile per il cliente:
 acquistare uno o più prodotti (ottenendo il totale da pagare) Non deve essere possibile acquistare un prodotto se la quantità rimanente è 0.
 
 Plus 1: implementare una logica di pagamento rateizzato che in base al numero di mesi e all'importo da pagare restituisca l'ammontare mensile
