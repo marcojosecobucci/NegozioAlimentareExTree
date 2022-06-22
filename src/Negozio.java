@@ -10,19 +10,19 @@ public class Negozio {
     }
 
     public void addProdottoMagazzino(Prodotti p) {
-        boolean addQuantita = false;
-        for (int i = 0; i < listaProdottiMagazzino.length; i++) {
-            if (listaProdottiMagazzino[i] != null && listaProdottiMagazzino[i].getNome().equals(p.getNome())) {
-                    listaProdottiMagazzino[i].setQuantitaProdotto(p.getQuantitaProdotto() + 1);
-                    addQuantita = true;
-                    break;
+        for (int i = 0; i < contatoreQuantitaProdotti; i++) {
+            if (listaProdottiMagazzino[i].getNome().equals(p.getNome())) {
+                listaProdottiMagazzino[i].setQuantitaProdotto(p.getQuantitaProdotto() + 1);
+                return;
             }
         }
 
-        if (!addQuantita) {
+        if (contatoreQuantitaProdotti < listaProdottiMagazzino.length) {
             listaProdottiMagazzino[contatoreQuantitaProdotti] = p;
             listaProdottiMagazzino[contatoreQuantitaProdotti].setQuantitaProdotto(1);
             contatoreQuantitaProdotti++;
+        } else {
+            System.out.println("Il magazzino è pieno!");
         }
     }
 
