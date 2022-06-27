@@ -1,3 +1,4 @@
+import java.util.PriorityQueue;
 
 public class Cassa {
 
@@ -6,6 +7,9 @@ public class Cassa {
     private float valoreScontrino;
     private GiornoDellaSettimana giornoDellaSettimana;
 
+    public Cassa() {
+    }
+
     public Cassa(Cliente cliente, GiornoDellaSettimana giornoDellaSettimana) {
         this.cliente = cliente;
         this.giornoDellaSettimana = giornoDellaSettimana;
@@ -13,6 +17,9 @@ public class Cassa {
         listaProdottiCarrello = cliente.carrello.getListaProdottiCarrello();
     }
 
+    public Cassa(PriorityQueue<Cliente> clienti, GiornoDellaSettimana giornoDellaSettimana) {
+        stampaScontrino();
+    }
 
     public void stampaScontrino() {
         sommaScontrino();

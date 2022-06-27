@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Objects;
 
 public class Carrello {
@@ -47,5 +48,12 @@ public class Carrello {
 
     public Prodotti[] getListaProdottiCarrello() {
         return listaProdottiCarrello;
+    }
+
+    @Override
+    public String toString() {
+        return "Carrello{" +
+                "listaProdottiCarrello=" + Arrays.toString(listaProdottiCarrello) +
+                '}';
     }
 }

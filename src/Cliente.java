@@ -1,5 +1,7 @@
-public class Cliente {
+import java.util.Comparator;
+import java.util.List;
 
+public class Cliente implements Comparable<Cliente> {
 
     private int eta;
 
@@ -7,7 +9,7 @@ public class Cliente {
 
     Carrello carrello;
 
-    public Cliente( int eta, int punti ,Carrello carrello) {
+    public Cliente(int eta, int punti, Carrello carrello) {
         this.eta = eta;
         this.punti = punti;
         this.carrello = carrello;
@@ -25,4 +27,22 @@ public class Cliente {
         this.punti = punti;
     }
 
+    @Override
+    public String toString() {
+        return "Cliente{" +
+                "eta=" + eta +
+                ", punti=" + punti +
+                '}';
+    }
+
+    @Override
+    public int compareTo(Cliente o) {
+        if(this.getEta() < o.getEta()) {
+            return 1;
+        } else if (this.getEta() > o.getEta()) {
+            return -1;
+        } else {
+            return 0;
+        }
+    }
 }

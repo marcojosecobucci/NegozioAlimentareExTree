@@ -5,7 +5,10 @@ public class Main {
         Negozio superMarket = new Negozio();
         Cliente cliente1 = new Cliente(65, 10, new Carrello(superMarket));
         Cliente cliente2 = new Cliente(25, 0, new Carrello(superMarket));
+        Cliente cliente3 = new Cliente(78, 0, new Carrello(superMarket));
+        Cliente cliente4 = new Cliente(82, 0, new Carrello(superMarket));
         Cassa cassa;
+        Coda coda = new Coda(new Cassa());
         Prodotti caffe = new Prodotti("Caffe", 3, GenereProdotto.ALIMENTARE);
         Prodotti stoviglie = new Prodotti("Stoviglie", 5, GenereProdotto.PRODOTTO_CASA);
         Prodotti penna = new Prodotti("Penna", 0.5f, GenereProdotto.CANCELLERIA);
@@ -27,9 +30,6 @@ public class Main {
 
         cliente1.carrello.addProdottoCarrello(penna);
 
-        cassa = new Cassa(cliente1, GiornoDellaSettimana.LUNEDI);
-        cassa.stampaScontrino();
-
         cliente2.carrello.addProdottoCarrello(caffe);
         cliente2.carrello.addProdottoCarrello(caffe);
 
@@ -37,8 +37,6 @@ public class Main {
 
         cliente2.carrello.addProdottoCarrello(penna);
 
-        cassa = new Cassa(cliente2, GiornoDellaSettimana.LUNEDI);
-        cassa.stampaScontrino();
 
         superMarket.addProdottoMagazzino(caffe);
         superMarket.addProdottoMagazzino(caffe);
@@ -48,15 +46,13 @@ public class Main {
 
         superMarket.addProdottoMagazzino(penna);
 
-        cliente2.carrello.addProdottoCarrello(caffe);
-        cliente2.carrello.addProdottoCarrello(caffe);
+        cliente3.carrello.addProdottoCarrello(caffe);
+        cliente3.carrello.addProdottoCarrello(caffe);
 
-        cliente2.carrello.addProdottoCarrello(stoviglie);
+        cliente3.carrello.addProdottoCarrello(stoviglie);
 
-        cliente2.carrello.addProdottoCarrello(penna);
+        cliente3.carrello.addProdottoCarrello(penna);
 
-        cassa = new Cassa(cliente2, GiornoDellaSettimana.MARTEDI);
-        cassa.stampaScontrino();
 
         superMarket.addProdottoMagazzino(caffe);
         superMarket.addProdottoMagazzino(caffe);
@@ -66,14 +62,20 @@ public class Main {
 
         superMarket.addProdottoMagazzino(penna);
 
-        cliente2.carrello.addProdottoCarrello(caffe);
-        cliente2.carrello.addProdottoCarrello(caffe);
+        cliente4.carrello.addProdottoCarrello(caffe);
+        cliente4.carrello.addProdottoCarrello(caffe);
 
-        cliente2.carrello.addProdottoCarrello(stoviglie);
+        cliente4.carrello.addProdottoCarrello(stoviglie);
 
-        cliente2.carrello.addProdottoCarrello(penna);
+        cliente4.carrello.addProdottoCarrello(penna);
 
-        cassa = new Cassa(cliente2, GiornoDellaSettimana.MARTEDI);
-        cassa.stampaScontrino(10);
+
+        coda.addCLienteInFila(cliente3);
+        coda.addCLienteInFila(cliente1);
+        coda.addCLienteInFila(cliente4);
+        coda.addCLienteInFila(cliente2);
+        coda.lunghezzaFila();
+        coda.fila(GiornoDellaSettimana.LUNEDI);
+        coda.lunghezzaFila();
     }
 }
