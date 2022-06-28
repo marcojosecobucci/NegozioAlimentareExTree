@@ -1,8 +1,8 @@
 public class Prodotti {
-    private String nome;
-    private float prezzo;
+    private final String nome;
+    private final float prezzo;
 
-    private GenereProdotto genereProdotto;
+    private final GenereProdotto genereProdotto;
     private int quantitaProdotto;
 
     public Prodotti(String nome, float prezzo, GenereProdotto genereProdotto) {

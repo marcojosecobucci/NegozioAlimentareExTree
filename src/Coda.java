@@ -1,10 +1,8 @@
-import java.util.Comparator;
 import java.util.PriorityQueue;
 
 public class Coda {
 
     private static PriorityQueue<Cliente> clienti;
-
     Cassa cassa;
 
     public Coda(Cassa cassa) {

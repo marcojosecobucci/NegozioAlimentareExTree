@@ -1,4 +1,3 @@
-import java.util.Objects;
 
 public class Negozio {
     private static Prodotti[] listaProdottiMagazzino;

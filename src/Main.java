@@ -1,4 +1,3 @@
-import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
@@ -7,7 +6,6 @@ public class Main {
         Cliente cliente2 = new Cliente(25, 0, new Carrello(superMarket));
         Cliente cliente3 = new Cliente(78, 0, new Carrello(superMarket));
         Cliente cliente4 = new Cliente(82, 0, new Carrello(superMarket));
-        Cassa cassa;
         Coda coda = new Coda(new Cassa());
         Prodotti caffe = new Prodotti("Caffe", 3, GenereProdotto.ALIMENTARE);
         Prodotti stoviglie = new Prodotti("Stoviglie", 5, GenereProdotto.PRODOTTO_CASA);

@@ -1,9 +1,7 @@
-import java.util.Comparator;
-import java.util.List;
 
 public class Cliente implements Comparable<Cliente> {
 
-    private int eta;
+    private final int eta;
 
     private int punti;
 
@@ -37,12 +35,6 @@ public class Cliente implements Comparable<Cliente> {
 
     @Override
     public int compareTo(Cliente o) {
-        if(this.getEta() < o.getEta()) {
-            return 1;
-        } else if (this.getEta() > o.getEta()) {
-            return -1;
-        } else {
-            return 0;
-        }
+        return Integer.compare(o.getEta(), this.getEta());
     }
 }

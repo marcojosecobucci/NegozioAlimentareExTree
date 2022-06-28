@@ -1,4 +1,3 @@
-import java.util.PriorityQueue;
 
 public class Cassa {
 
@@ -15,10 +14,6 @@ public class Cassa {
         this.giornoDellaSettimana = giornoDellaSettimana;
         valoreScontrino = 0;
         listaProdottiCarrello = cliente.carrello.getListaProdottiCarrello();
-    }
-
-    public Cassa(PriorityQueue<Cliente> clienti, GiornoDellaSettimana giornoDellaSettimana) {
-        stampaScontrino();
     }
 
     public void stampaScontrino() {

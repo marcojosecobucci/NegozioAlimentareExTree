@@ -1,11 +1,10 @@
 import java.util.Arrays;
-import java.util.Objects;
 
 public class Carrello {
-    private Prodotti[] listaProdottiCarrello;
+    private final Prodotti[] listaProdottiCarrello;
     private int contatoreQuantitaProdotti;
-    private Negozio negozio;
-    private Prodotti[] magazzino;
+    private final Negozio negozio;
+    private final Prodotti[] magazzino;
 
     public Carrello(Negozio negozio) {
         listaProdottiCarrello = new Prodotti[20];
@@ -18,13 +17,12 @@ public class Carrello {
         boolean prodottoEsistente = false;
         boolean disponibilitaProdotto = false;
         if (contatoreQuantitaProdotti <= 20) {
-            for (int i = 0; i < magazzino.length; i++) {
-                if (magazzino[i] != null && magazzino[i].getNome().equals(p.getNome())) {
+            for (Prodotti prodotti : magazzino) {
+                if (prodotti != null && prodotti.getNome().equals(p.getNome())) {
                     prodottoEsistente = true;
-                    if (magazzino[i].getQuantitaProdotto() > 0) {
-                        System.out.println("In negozio rimangono: " + (magazzino[i].getQuantitaProdotto()-1)
-                                + " " + magazzino[i].getNome());
-
+                    if (prodotti.getQuantitaProdotto() > 0) {
+                        System.out.println("In negozio rimangono: " + (prodotti.getQuantitaProdotto() - 1)
+                                + " " + prodotti.getNome());
                         disponibilitaProdotto = true;
                         listaProdottiCarrello[contatoreQuantitaProdotti] = p;
                         contatoreQuantitaProdotti++;
